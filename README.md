@@ -1,21 +1,19 @@
-# Análise da influência dos movimentos oculares em sinais de EEG
+# Programa feito em Python com objetivo de remover ruídos presentes en arquyivos de áudio
 
-Além dos ruídos de natureza técnica, biopotenciais indesejados, oriundos da atividade elétrica em outras partes do corpo humano, podem interferir significativamente na leitura do potencial elétrico que descreve a atividade neuronal no eletroencefalograma (EEG) (NIDAL; MALIK, 2014).
-
-Esses ruídos, geralmente chamados de artefatos, são originados de fontes diversas como:
-- Piscadas ou movimento do globo ocular
-- Atividade muscular da cabeça: pescoço e mandíbula
-- Atividade cardíaca
+Ao se gravar um audio pode ser que no mesmo tenha ruídos, esses ruídos geralmente podem ser capturados no momento da gravação do áudio, alguns dispositivos 
+de gravação possuem de fábrica filtros que minimizam os ruídos, tendo em vista que ainda assim, alguns ruídos ainda possam ser capturados.
+Tendo em vista amenizar ruídos que possam ser capturados na gravação de um áudio, o presente trabalho visa a criação de um sistema capaz de amenizar ruídos
+sem perder a mensagem principal do arquivo que sera filtrado.
 
 ## Motivações
 
-- O processo de filtragem minimiza a interferência artefatos que prejudicam a qualidade dos sinais de EEG para fins de estudos científicos.
-- Além disso, existem fenômenos fisiológicos que ocorrem em faixas de frequências específicas, que podem ser selecionadas através de processos de filtragem.
-- Não obstante, a interferência dos artefatos presentes nos sinais de EEG tem impactos negativos consideráveis em sistemas de Interface Cérebro Máquina (ICM) baseados nesses biosinais, as quais buscam interpretar as atividades cerebrais para fins de comunicação ou interação com o ambiente externo.
+- O processo de filtragem minimiza a interferência de ruídos que prejudicam a qualidade dos sinais analisados.
+- Além disso, uso e emprego de conhecimentos de Processamento Digital de Sinais, fazendo uso de um filtro passa-baixa.
+- Não obstante, a interferência de ruídos externos no momento da gravação de um áudio pode fazer com que a mensagem principal não seja entendida pelo ouvinte.
 
 ## Objetivo
 
-Desenvolver um filtro capaz de minimizar a interferência de biopotenciais indesejados, mais especificamente o movimento do globo ocular, nos sinais de EEG.
+Desenvolver um filtro capaz de minimizar a interferência de ruídos e barulhos indesejados, na gravação de um áudio.
 
 ## Tecnologias Usadas
 
@@ -34,39 +32,21 @@ Caso deseje executar em máquina local realize a clonagem do repositório e as m
 
  - Clonagem do repositório:
 shell
-$ git clone https://github.com/danilosl/Learning-PDS.git
+$ git clone https://github.com/WesDavi/Final_Project_PDS
 
 
 ## Resultados
 
-<p align="center">
-  <img src="https://github.com/danilosl/Learning-PDS/raw/main/img/sinais_brutos.svg"/>
-  <img src="https://github.com/danilosl/Learning-PDS/raw/main/img/sinais_filtrados.svg"/>
-</p>
+Este projeto, buscou reduzir de forma suscinta e sem grandes perdas da mensagem principal a redução ou eliminação de ruídos e/ou barulhos que possam prejudicar a mensagem principal que esta tentando ser passada. Foi utilizado um filtro passa-baixa, fazendo com que o mesmo passasse apenas sinais a baixo da banda de corte, essa analise de onde o filtro deve agir deve ser feita pelo usuário ao observar no dominio da frequência onde está presente o ruído e apartir disso visar eliminar o ruído (não existe possibilidade de eliminar o mesmo 100% porém deve-se tentar minimizar o ruído ao máximo).
 
-Este projeto, buscou percorrer os principais tópicos relacionados a projeção de filtros digitais, juntamente com um estudo de caso da influência do biopotencial indesejado dos movimentos oculares em sinais de EEG, afim de contribuir com a melhor compressão da problemática e propor um filtro capaz de minimizar essa influência.
-
-O filtro projetado apresentou resultados promissores, entretanto, na banda de passagem do filtro, ainda se encontram influências dos movimentos oculares. Como trabalhos futuros é sugerido a agregação de outras técnicas de remoção de artefatos dos sinais de EEG, como o método Local SSA (Local Singular Spectrum Analysis) que remove os artefatos oculares sem perder amostras do sinal.
+O filtro projetado apresentou resultados promissores, tendo em vista que no arquivo de áudio utilizado o ruído foi eliminado quase que 100% mostrando, dessa forma que o filtro passa-baixa cumrpiu com o objetivo principal do trabalho em questão.
 
 ## Referências
 
 >[1] DE NORONHA AMABILE, Renato Augusto. Remoção de artefatos e análise de parâmetros espectrais em sinais de EEG: efeitos do fármaco flunitrazepam. 2008.
->
->[2] DUTRA, O. O. Um Amplificador Neural de baixo ruído e baixa potência utilizando uma topologia Folded Cascode OTA com malha de realimentação PID e ganho ajustável para EEG SoC Arrays. 2012. 85 f. Dissertação (Mestrado) - Curso de Engenharia Elétrica, Universidade Federal de Itajubá, Itajubá, 2012.
 >
 >[3] LATHI, Bhagwandas Pannalal. Sinais e sistemas lineares-2. Bookman, 2006.
 >
 >[4] NIDAL, Kamel; MALIK, Aamir Saeed (Ed.). EEG/ERP analysis: methods and applications. Crc Press, 2014.
 >
 >[5] OPPENHEIM, Alan V.; SCHAFER, Ronald W. Processamento em tempo discreto de sinais. Tradução Daniel Vieira. 3ª ed.-São Paulo: Pearson Education do Brasil, 2012.
->
->[6] Romero, S., Mañanas, M. A., & Barbanoj, M. J. (2008). A comparative study of automatic techniques for ocular artifact reduction in spontaneous EEG signals based on clinical target variables: a simulation case. Computers in biology and medicine, 38(3), 348-360.
->
->[7] Urigüen, J. A., & Garcia-Zapirain, B. (2015). EEG artifact removal—state-of-the-art and guidelines. Journal of neural engineering, 12(3), 031001.
-
-## Links Úteis
->BCI Competition IV:
->https://www.bbci.de/competition/iv/#dataset2a
->
->Repositório da ferramenta pyfda no GitHub:
->https://github.com/chipmuenk/pyfda
